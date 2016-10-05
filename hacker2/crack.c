@@ -25,7 +25,7 @@
 // Tested on
 /*
 1        || 50Xu9TV42tQOg || 0.002s      || 3,420 possible passwords
-al       || 507IH4BV0kgzc || 0.789s      ||324,900 possible passwords
+al       || 507IH4BV0kgzc || 0.789s      || 324,900 possible passwords
 RoR      || 50b5ILzBEDplw || 45.780s     || 30,865,500 possible passwords
 Ruby     || 50VfakyL0ptK. || 4170.874s   || 2,932,222,500 possible passwords
 Linux    || 50u8HReKZleek || 355826.965s || 278,561,137,500 possible passwords
