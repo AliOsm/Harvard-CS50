@@ -1,0 +1,12 @@
+questions.txt
+
+Computer Science 50
+Problem Set 3
+
+0. Allow the framework to represent another games of d's dimensions like 3*3 ro 8*8.
+1. 2D Array.
+2. void greet(void);
+3. void init(void);
+   void draw(void);
+   bool move(int tile);
+   bool won(void);
