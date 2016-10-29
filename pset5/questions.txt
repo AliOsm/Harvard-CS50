@@ -1,0 +1,41 @@
+0.  Is an English word that refers to a lung disease that is otherwise known as silicosis.
+    It is the longest word in the English language published in a dictionary, the Oxford English Dictionary.
+    
+1.  getrusage() returns resource usage measures for who, which can be one of the following:
+
+   RUSAGE_SELF
+          Return resource usage statistics for the calling process, which is the sum of resources used by all threads in the process.
+
+   RUSAGE_CHILDREN
+          Return  resource usage statistics for all children of the calling process that have terminated and been waited for.  These sta‐
+          tistics will include the resources used by grandchildren, and further removed descendants, if all of  the  intervening  descen‐
+          dants waited on their terminated children.
+
+   RUSAGE_THREAD (since Linux 2.6.26)
+          Return resource usage statistics for the calling thread.
+
+2.  16.
+
+3.  Because variable `a` and `b` in `calculate` function are only pointers.
+
+4.  First thing main finction make sure there is 2 or 3 comand line arguments then make sure there is dictionary name to load it,
+    if there is no dictionary name then load the default one (large.txt), if the file doesn't load then the program is stop, after load
+    dictionary succefully then calculate load time and move on and load text file which is contain text to check it.
+    
+    After load all things the program start to get words from the text file one by one and reject all special characters except apostrophes,
+    after that check the current word if it is correct or not, then if there is some errors with text file, after this if there is no errors
+    the program calculate size of dictionary file and unload the dictionary if there is an error with the unload the program say that,
+    if there is no errors the program calculate the unload time and print all information from benchmarks.
+    
+5.  Because we need to make sure there is no any special character except apostrophes so we use `fgetc` to egnore them.
+
+6.  Because we don't need to change the value of them.
+
+7.  First thing I use struct contains two members, boolean variable to detect is this a word or not and array of pointers to point to new locations if necessary, then I use Trie data-
+    structure to load all words in memory and implement the check function as fast as possible.
+
+8.  From the first time I got the fastest runtime and after that I can't improve my code up.
+
+9.  I didn't any thing.
+
+10. I feel there is some thing wrong but I can't see where to fix it but I'm very happy with my code;
