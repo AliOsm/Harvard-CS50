@@ -29,6 +29,13 @@ Link to pset4: http://cdn.cs50.net/2016/x/psets/4/pset4/pset4.html
 
 Link to hacker4: http://cdn.cs50.net/2016/x/psets/4/hacker4/hacker4.html
 
+Problem Set 5
+----------
+
+Link to pset5: http://cdn.cs50.net/2016/x/psets/5/pset5/pset5.html
+
+Link to hacker5: There is no hacker5 :P
+
 Notes
 ----------
 
