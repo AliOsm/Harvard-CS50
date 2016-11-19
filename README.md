@@ -36,6 +36,20 @@ Link to pset5: http://cdn.cs50.net/2016/x/psets/5/pset5/pset5.html
 
 Link to hacker5: There is no hacker5 :P
 
+Problem Set 6
+----------
+
+Link to pset6: http://cdn.cs50.net/2016/x/psets/6/pset6/pset6.html
+
+Link to hacker6: There is no hacker6 :P
+
+Problem Set 7
+----------
+
+Link to pset7: http://cdn.cs50.net/2016/x/psets/7/pset7/pset7.html
+
+Link to hacker7: There is no hacker7 :P
+
 Notes
 ----------
 
