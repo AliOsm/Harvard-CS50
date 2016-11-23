@@ -50,6 +50,13 @@ Link to pset7: http://cdn.cs50.net/2016/x/psets/7/pset7/pset7.html
 
 Link to hacker7: There is no hacker7 :P
 
+Problem Set 7
+----------
+
+Link to pset8: http://cdn.cs50.net/2016/x/psets/8/pset8/pset8.html
+
+Link to hacker7: There is no hacker8 :P
+
 Notes
 ----------
 
