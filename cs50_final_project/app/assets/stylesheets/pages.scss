@@ -1,0 +1,175 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* CLASSES */
+
+.about p {
+	font-size: 17px;
+}
+
+.home-signin, .about {
+	background: #2980b9;
+}
+
+.home-signup, .edit-user {
+	background: #3498db;
+}
+
+.home-signin .title, .home-signup .title, .edit-user .title, .about .title {
+	color: #fff;
+	text-align: center;
+	font-family: 'Bungee', cursive;
+	font-size: 50px;
+	margin-top: -90px;
+}
+
+.home-site-title {
+  top: 0;
+  z-index: 10;
+}
+
+.home-about {
+  bottom: 0;
+}
+
+.home-site-title, .home-about {
+	position: absolute;
+	right: 0;
+  left: 0;
+}
+
+.home-site-title p, .home-about p {
+	font-family: 'Open Sans Condensed', arial, sans;
+}
+
+.home-site-title p {
+	font-size: 75px;
+}
+
+.home-about p {
+	font-size: 17px;
+}
+
+.home-site-title p, .home-about p {
+	color: white;
+	text-align: center;
+}
+
+.home-site-title p a {
+	text-decoration: none;
+}
+
+.home-site-title p a, .home-about p a {
+	color: white;
+}
+
+.home-site-title p .marker {
+	font-size: 50px;
+	position: absolute;
+	margin-top: 20px;
+}
+
+.admin-button {
+	left: 35px;
+	bottom: 95px;
+}
+
+.share-your-map-button {
+	left: 155px;
+	bottom: 35px;
+	cursor: pointer;
+}
+
+.edit-user-button, .dashboard-button {
+	left: 95px;
+	bottom: 35px;
+}
+
+.logout-button {
+	left: 35px;
+	bottom: 35px;
+}
+
+.edit-user-button, .logout-button, .dashboard-button, .admin-button, .share-your-map-button {
+	background: #2c3e50;
+	border: 5px solid #2c3e50;
+	border-radius: 100px;
+	padding: 9px;
+	padding-right: 11px;
+	padding-left: 11px;
+	color: white;
+	position: absolute;
+}
+
+/* TOOLTIP STYLE */
+
+.tooltip.top .tooltip-arrow {
+	border-top-color: #2c3e50;
+}
+
+.admin-button + .tooltip > .tooltip-inner,
+.share-your-map-button + .tooltip > .tooltip-inner,
+.dashboard-button + .tooltip > .tooltip-inner,
+.edit-user-button + .tooltip > .tooltip-inner,
+.logout-button + .tooltip > .tooltip-inner, {
+	background-color: #2c3e50;
+}
+
+/* MAP STYLE */
+
+#map {
+  height: 100%;
+}
+
+.labels {
+  color: black;
+  font-size: 16px;
+  pointer-events: none;
+  text-align: center;
+  width: 250px;
+  min-width: 100px;
+  font-family: 'Open Sans Condensed', tahoma, sans;
+}
+
+#info hr {
+	height: 1px;
+	background: #999;
+	max-width: 75%;
+}
+
+.info-window-title, .info-share-place-title {
+	font-family: 'Bungee', cursive;
+	font-size: 15px;
+}
+
+.info-window-description {
+	font-family: 'Open Sans Condensed', tahoma, sans;
+	font-size: 15px;
+}
+
+.marker_description {
+	margin-bottom: 0px;
+}
+
+/* MEDIA */
+
+@media(max-width: 768px) {
+	.home-signup .title, .home-signin .title {
+		margin: 0 0;
+		margin-top: -107px;
+		padding: 25px;
+	}
+
+	.home-site-title p .marker {
+		font-size: 15px;
+		position: absolute;
+		margin-top: 0;
+	}
+}
+
+@media(min-width: 768px) {
+	.edit-user div {
+		top: 50px;
+	}
+}

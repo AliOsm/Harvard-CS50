@@ -1,0 +1,19 @@
+<h1 class="title">Sign up</h1>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+	<%= f.label :username %>
+  <%= f.text_field :username, placeholder: 'from 3 to 16 character - only letters, numbers and underscores', required: true, maxlength: 16, minlength: 3 %>
+  <%= f.label :password %>
+  <%= f.password_field :password, placeholder: 'from 6 to 128 character', required: true, maxlength: 128, minlength: 6 %>
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation, placeholder: 're-enter your password', required: true, maxlength: 128, minlength: 6 %>
+
+  <center>
+  	<%= f.submit 'Sign up', class: 'style2' %>
+
+  	<% if action_name != 'home' %>
+  		<br/>
+			<p style="margin-top: 10px;"><%= link_to "Sign in", new_session_path(resource_name) %><br /></p>
+		<% end %>
+  </center>
+<% end %>

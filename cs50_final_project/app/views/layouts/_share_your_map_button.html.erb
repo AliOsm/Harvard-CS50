@@ -1,0 +1,30 @@
+<div id="share-your-map-modal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Share your map</h4>
+      </div>
+      <div class="modal-body" style="padding-bottom: 10px;">
+        <div class="form-inputs">
+          <div class="form-group user_map_url" style="margin-bottom: 0px;">
+            <label class="control-label" for="user_map_url">By sharing this URL you allow everyone to see your map and markers!</label>
+            <input class="form-control" type="text" id="user_map_url" value="http://imarker.herokuapp.com/<%= current_user.username %>/<%= current_user.token %>">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <%= link_to 'Change' , change_token_path, method: :put, :class => 'btn btn-primary', remote: true %>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<span class="share-your-map-button" data-toggle="tooltip" data-placement="top" title="Share your map NOW!"><i class="fa fa-lg fa-share-alt" aria-hidden="true"></i></span>
+
+<script type="text/javascript">
+  $('.share-your-map-button').click(function() {
+    $('#share-your-map-modal').modal('show');
+  });
+</script>

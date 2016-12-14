@@ -1,0 +1,40 @@
+<% title('Edit user') %>
+
+<%= render 'layouts/header' %>
+
+<div class="col-md-12 height100 edit-user pos-relative">
+  <div class="form centering-form" style="height: 390px;">
+    <h1 class="title">Edit user</h1>
+
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= f.label :username %>
+      <%= f.text_field :username, placeholder: 'from 3 to 16 character - only letters, numbers and underscores', required: true, maxlength: 16, minlength: 3 %>
+      <%= f.label :password %>
+      <%= f.password_field :password, placeholder: 'from 6 to 128 character', maxlength: 128, minlength: 6 %>
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, placeholder: 're-enter your password', maxlength: 128, minlength: 6 %>
+
+      <hr/>
+
+      <%= f.label :current_password %>
+      <%= f.password_field :current_password, placeholder: 'we need your current password to confirm', required: true, maxlength: 128, minlength: 6 %>
+
+      <center>
+        <%= f.submit 'Update', class: 'style2' %>
+      </center>
+    <% end %>
+  </div>
+</div>
+
+<%= render 'layouts/footer' %>
+
+<%= render 'layouts/admin_button' if current_user.admin? %>
+<%= render 'layouts/logout_button' %>
+<%= render 'layouts/dashboard_button' %>
+<%= render 'layouts/share_your_map_button' %>
+
+<script type="text/javascript">
+  $(document).ready( function() {
+    $('[data-toggle="tooltip"]').tooltip();
+  });
+</script>

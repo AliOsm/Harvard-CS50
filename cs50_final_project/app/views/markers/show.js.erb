@@ -1,0 +1,59 @@
+<% if action %>
+	$('.modal').modal('hide');
+	$('.marker_lat').removeClass('has-error');
+	$('.marker_lng').removeClass('has-error');
+	$('.marker_title').removeClass('has-error');
+	$('.marker_description').removeClass('has-error');
+	$('#marker_title').val('');
+	$('#marker_description').val('');
+
+	var marker = new MarkerWithLabel({
+    position: new google.maps.LatLng(<%= lat %>, <%= lng %>),
+    map: map,
+    labelContent: "<%= title %>",
+    labelAnchor: new google.maps.Point(125, -10),
+    labelClass: "labels"
+  });
+
+  google.maps.event.addListener(marker, "click", function() {
+    var content = "<div id='info'>";
+    content += "<p class='info-window-title'><%= title %></p>";
+    content += "<hr/>";
+
+    <% unless description.empty? %>
+      content += "<p class='info-window-description'><%= description %></p>";
+    <% else %>
+      content += "<p class='info-window-description'>There is no description!</p>";
+    <% end %>
+
+    content += "<a rel='nofollow' data-method='delete' href='/markers/<%= id %>' data-remote='true'>Delete this place :(</a>"
+    content += "<hr/>";
+    content += "<p class='info-share-place-title'>Share this place now!!</p>";
+    content += "<span class='social'>";
+
+    content += "<a class='facebook fa fa-facebook-square fa-3x' href='https://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.google.jo%2Fmaps%3Fz%3D8%26q%3D<%= lat %>%2B<%= lng %>%26ll%3D<%= lat %>%2B<%= lng %>&quote=<%= title %>&hashtag=%23iMarker' onclick='MyPopUpWin(this.href, 600, 600)' target='_blank' title='Share on Facebook'></a>";
+
+    content += "<a class='twitter fa fa-twitter-square fa-3x' href='https://twitter.com/intent/tweet?text=<%= title %>&url=https%3A%2F%2Fwww.google.jo%2Fmaps%3Fz%3D8%26q%3D<%= lat %>%2B<%= lng %>%26ll%3D<%= lat %>%2B<%= lng %>&hashtags=iMarker' onclick='MyPopUpWin(this.href, 600, 600)' target='_blank' title='Share on Twitter'></a>";
+
+    content += "<a class='googleplus fa fa-google-plus-square fa-3x' href='https://plus.google.com/share?url=https%3A%2F%2Fwww.google.jo%2Fmaps%3Fz%3D8%26q%3D<%= lat %>%2B<%= lng %>%26ll%3D<%= lat %>%2B<%= lng %>' onclick='MyPopUpWin(this.href, 600, 600)'' target='_blank' title='Share on GooglePlus'></a>";
+
+    content += "</span>";
+    content += "</div>";
+
+    info.setContent(content);
+    info.open(map, this);
+  });
+
+  google.maps.event.addListener(marker, "dblclick", function (e) { 
+    map.setZoom(map.getZoom() + 2);
+    map.setCenter(getPosition());
+    info.close();
+  });
+
+  markers.push(marker);
+<% else %>
+	$('.marker_lat').addClass('has-error');
+	$('.marker_lng').addClass('has-error');
+	$('.marker_title').addClass('has-error');
+	$('.marker_description').addClass('has-error');
+<% end %>

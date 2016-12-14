@@ -1,0 +1,300 @@
+<% title(params[:username] + ' Map') %>
+
+<div id="map"></div>
+
+<%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyBqRWzcEw82hkDjN791Vu3D8qTNEXuC81g', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'markerwithlabel.js', 'data-turbolinks-track': 'reload' %>
+
+<script>
+  /* global google */
+
+  $(document).ready( function() {
+    initMap();
+  });
+
+  // Google Map
+  var map;
+
+  // Global lat, lng variables for Save
+  var lat, lng;
+
+  // markers for map
+  var markers = [];
+
+  // info window
+  var info = new google.maps.InfoWindow();
+
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: <%= @location[0] %>, lng: <%= @location[1] %>},
+      zoom: 8
+    });
+
+    <% @markers.each do |marker| %>
+      var marker = new MarkerWithLabel({
+        position: new google.maps.LatLng(<%= marker.lat %>, <%= marker.lng %>),
+        map: map,
+        labelContent: "<%= marker.title %>",
+        labelAnchor: new google.maps.Point(125, -10),
+        labelClass: "labels"
+      });
+
+      google.maps.event.addListener(marker, "click", function() {
+        var content = "<div id='info'>";
+        content += "<p class='info-window-title'><%= marker.title %></p>";
+        content += "<hr/>";
+
+        <% unless marker.description.empty? %>
+          content += "<p class='info-window-description'><%= marker.description %></p>";
+        <% else %>
+          content += "<p class='info-window-description'>There is no description!</p>";
+        <% end %>
+
+        content += "<hr/>";
+        content += "<p class='info-share-place-title'>Share this place now!!</p>";
+        content += "<span class='social'>";
+
+        content += "<a class='facebook fa fa-facebook-square fa-3x' href='https://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.google.jo%2Fmaps%3Fz%3D8%26q%3D<%= marker.lat %>%2B<%= marker.lng %>%26ll%3D<%= marker.lat %>%2B<%= marker.lng %>&quote=<%= marker.title %>&hashtag=%23iMarker' onclick='MyPopUpWin(this.href, 600, 600)' target='_blank' title='Share on Facebook'></a>";
+
+        content += "<a class='twitter fa fa-twitter-square fa-3x' href='https://twitter.com/intent/tweet?text=<%= marker.title %>&url=https%3A%2F%2Fwww.google.jo%2Fmaps%3Fz%3D8%26q%3D<%= marker.lat %>%2B<%= marker.lng %>%26ll%3D<%= marker.lat %>%2B<%= marker.lng %>&hashtags=iMarker' onclick='MyPopUpWin(this.href, 600, 600)' target='_blank' title='Share on Twitter'></a>";
+
+        content += "<a class='googleplus fa fa-google-plus-square fa-3x' href='https://plus.google.com/share?url=https%3A%2F%2Fwww.google.jo%2Fmaps%3Fz%3D8%26q%3D<%= marker.lat %>%2B<%= marker.lng %>%26ll%3D<%= marker.lat %>%2B<%= marker.lng %>' onclick='MyPopUpWin(this.href, 600, 600)'' target='_blank' title='Share on GooglePlus'></a>";
+
+        content += "</span>";
+        content += "</div>";
+
+        info.setContent(content);
+        info.open(map, this);
+      });
+
+      google.maps.event.addListener(marker, "dblclick", function (e) { 
+        map.setZoom(map.getZoom() + 2);
+        map.setCenter(marker.getPosition());
+        info.close();
+      });
+
+      markers.push(marker);
+    <% end %>
+
+    var styledMapType = new google.maps.StyledMapType(
+    [
+      {
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#ebe3cd"
+          }
+        ]
+      },
+      {
+        "elementType": "labels.text.fill",
+        "stylers": [
+          {
+            "color": "#523735"
+          }
+        ]
+      },
+      {
+        "elementType": "labels.text.stroke",
+        "stylers": [
+          {
+            "color": "#f5f1e6"
+          }
+        ]
+      },
+      {
+        "featureType": "administrative",
+        "elementType": "geometry.stroke",
+        "stylers": [
+          {
+            "color": "#c9b2a6"
+          }
+        ]
+      },
+      {
+        "featureType": "administrative.land_parcel",
+        "elementType": "geometry.stroke",
+        "stylers": [
+          {
+            "color": "#dcd2be"
+          }
+        ]
+      },
+      {
+        "featureType": "administrative.land_parcel",
+        "elementType": "labels.text.fill",
+        "stylers": [
+          {
+            "color": "#ae9e90"
+          }
+        ]
+      },
+      {
+        "featureType": "landscape.natural",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#dfd2ae"
+          }
+        ]
+      },
+      {
+        "featureType": "poi",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#dfd2ae"
+          }
+        ]
+      },
+      {
+        "featureType": "poi",
+        "elementType": "labels.text.fill",
+        "stylers": [
+          {
+            "color": "#93817c"
+          }
+        ]
+      },
+      {
+        "featureType": "poi.park",
+        "elementType": "geometry.fill",
+        "stylers": [
+          {
+            "color": "#a5b076"
+          }
+        ]
+      },
+      {
+        "featureType": "poi.park",
+        "elementType": "labels.text.fill",
+        "stylers": [
+          {
+            "color": "#447530"
+          }
+        ]
+      },
+      {
+        "featureType": "road",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#f5f1e6"
+          }
+        ]
+      },
+      {
+        "featureType": "road.arterial",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#fdfcf8"
+          }
+        ]
+      },
+      {
+        "featureType": "road.highway",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#f8c967"
+          }
+        ]
+      },
+      {
+        "featureType": "road.highway",
+        "elementType": "geometry.stroke",
+        "stylers": [
+          {
+            "color": "#e9bc62"
+          }
+        ]
+      },
+      {
+        "featureType": "road.highway.controlled_access",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#e98d58"
+          }
+        ]
+      },
+      {
+        "featureType": "road.highway.controlled_access",
+        "elementType": "geometry.stroke",
+        "stylers": [
+          {
+            "color": "#db8555"
+          }
+        ]
+      },
+      {
+        "featureType": "road.local",
+        "elementType": "labels.text.fill",
+        "stylers": [
+          {
+            "color": "#806b63"
+          }
+        ]
+      },
+      {
+        "featureType": "transit.line",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#dfd2ae"
+          }
+        ]
+      },
+      {
+        "featureType": "transit.line",
+        "elementType": "labels.text.fill",
+        "stylers": [
+          {
+            "color": "#8f7d77"
+          }
+        ]
+      },
+      {
+        "featureType": "transit.line",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+          {
+            "color": "#ebe3cd"
+          }
+        ]
+      },
+      {
+        "featureType": "transit.station",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#dfd2ae"
+          }
+        ]
+      },
+      {
+        "featureType": "water",
+        "elementType": "geometry.fill",
+        "stylers": [
+          {
+            "color": "#b9d3c2"
+          }
+        ]
+      },
+      {
+        "featureType": "water",
+        "elementType": "labels.text.fill",
+        "stylers": [
+          {
+            "color": "#92998d"
+          }
+        ]
+      }
+    ],
+    {name: 'Styled Map'});
+
+    map.mapTypes.set('styled_map', styledMapType);
+    map.setMapTypeId('styled_map');
+  }
+</script>
