@@ -57,6 +57,13 @@ Link to pset8: http://cdn.cs50.net/2016/x/psets/8/pset8/pset8.html
 
 Link to hacker8: There is no hacker8 :P
 
+Final Project
+----------
+
+Link to final project sheet: http://cdn.cs50.net/2016/x/project/project.html
+
+Link to final project site: 
+
 Notes
 ----------
 
