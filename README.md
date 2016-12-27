@@ -66,6 +66,10 @@ Link to final project site: http://imarker.herokuapp.com
 
 Link to final project code: https://github.com/AliOsm/Harvard-CS50/tree/master/cs50_final_project
 
+Link to final project video: https://youtu.be/xS5WcIhAjTY
+
+Link to final project video project: https://github.com/AliOsm/Harvard-CS50/tree/master/Final%20Project%20Video
+
 Notes
 ----------
 
