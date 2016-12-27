@@ -1,6 +1,6 @@
 # Challenges
 
-## Temperature Converter
+## 1 - Temperature Converter
 
 Write a program that, given a temperature in Celsius, C, as a floating-point value via standard input, prints via standard output that temperature in Fahrenheit, F, as a floating-point value, rounded to one decimal place.
 
@@ -50,7 +50,7 @@ We leave the `TODO` to you!
 
 ----------
 
-## Factorialization
+## 2 - Factorialization
 
 Write a program that takes an integer as input and outputs its factorial.
 
@@ -88,7 +88,7 @@ The factorial of a number, n, is `n × (n - 1) × (n - 2) ... × 2 × 1`. For ex
 
 ----------
 
-## Substring Challenge
+## 3 - Substring Challenge
 
 Write a program that takes two strings as input. If the second string is a substring of the first, output the index where the second string begins within the first string. Otherwise, output `-1`. Be sure to support wildcard characters, represented by an asterisk (`*`).
 
@@ -123,7 +123,7 @@ We leave the `TODO` to you!
 
 ----------
 
-## Decimal to Binary Conversion
+## 4 - Decimal to Binary Conversion
 
 Take in a decimal number via input and output the corresponding binary number, displaying only significant bits (i.e., don't show `01111` for 15, only `1111`).
 
@@ -157,7 +157,7 @@ We leave the `TODO` to you!
 
 ----------
 
-## Reverse Linked List
+## 5 - Reverse Linked List
 
 Using a linked list, allow the user to input as many integers as they want, stopping when they enter a non-numeric character, then output all of the integers in the list in reversed order, separated by newlines.
 
@@ -196,7 +196,7 @@ We leave the `TODO` to you!
 
 ----------
 
-## Phone Book Challenge
+## 6 - Phone Book Challenge
 
 Write a program that reads a specified number of phone book entries, creating a hash map entry as needed, then reads name queries and outputs the matching entry from the phone book, if such entry exists.
 
