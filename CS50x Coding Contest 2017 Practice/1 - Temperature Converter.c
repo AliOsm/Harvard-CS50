@@ -8,3 +8,4 @@ int main(void)
     scanf("%lf", &c);
     printf("%.1lf\n", (c * (9.0/5.0)) + 32);
 }
+//
