@@ -3,11 +3,13 @@
 
 int count;
 
-long long reverseNumber(long long credit) {
+long long reverseNumber(long long credit) 
+{
 	count = 0;
 	long long tmp = 0;
 
-	while (credit > 0) {
+	while (credit > 0) 
+	{
 		tmp *= 10;
 		tmp += credit % 10;
 		credit /= 10;
@@ -17,10 +19,12 @@ long long reverseNumber(long long credit) {
 	return tmp;
 }
 
-int numberTotal(int number) {
+int numberTotal(int number) 
+{
 	int total = 0;
 
-	while (number > 0) {
+	while (number > 0) 
+	{
 		total += number % 10;
 		number /= 10;
 	}
@@ -28,28 +32,34 @@ int numberTotal(int number) {
 	return total;
 }
 
-int getCreditCompany(long long credit) {
+int getCreditCompany(long long credit) 
+{
 	long long tmp = reverseNumber(credit);
 
 	const int AMEX = tmp % 100;
 	const int MASTERCARD = tmp % 100;
 	const int VISA = tmp % 10;
 
-	if (AMEX == 43 || AMEX == 73) {
+	if (AMEX == 43 || AMEX == 73) 
+	{
 		return 1;
 	}
-	else if (MASTERCARD == 15 || MASTERCARD == 25 || MASTERCARD == 35 || MASTERCARD == 45 || MASTERCARD == 55) {
+	else if (MASTERCARD == 15 || MASTERCARD == 25 || MASTERCARD == 35 || MASTERCARD == 45 || MASTERCARD == 55) 
+	{
 		return 2;
 	}
-	else if (VISA == 4) {
+	else if (VISA == 4) 
+	{
 		return 3;
 	}
-	else {
+	else 
+	{
 		return 4;
 	}
 }
 
-int main(void) {
+int main(void) 
+{
 	printf("Number: ");
 	long long credit = GetLongLong();
 	//long long credit;
@@ -57,26 +67,33 @@ int main(void) {
 
 	int company = getCreditCompany(credit);
 
-	if (company == 4) {
+	if (company == 4) 
+	{
 		printf("INVALID\n");
 	}
-	else {
+	else 
+	{
 		int total = 0;
 
-		for (int i = 1; i <= count; i++) {
+		for (int i = 1; i <= count; i++) 
+		{
 			int tmp = credit % 10;
 			credit /= 10;
 
-			if (i % 2 != 0) {
+			if (i % 2 != 0) 
+			{
 				total += tmp;
 			}
-			else {
+			else 
+			{
 				total += numberTotal(tmp * 2);
 			}
 		}
 
-		if (total % 10 == 0) {
-			switch (company) {
+		if (total % 10 == 0) 
+		{
+			switch (company) 
+			{
 			case 1:
 				printf("AMEX\n");
 				break;
@@ -88,7 +105,8 @@ int main(void) {
 				break;
 			}
 		}
-		else {
+		else 
+		{
 			printf("INVALID\n");
 		}
 	}
